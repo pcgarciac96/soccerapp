@@ -27,11 +27,11 @@
       class="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
       <article
-        class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl "
         v-for="(plan, i) in playersList"
         :key="i"
       >
-        <a href="#">
+       
           <div class="relative flex items-end overflow-hidden rounded-xl">
             <img
               src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -75,7 +75,7 @@
               </button>
             </div>
           </div>
-        </a>
+       
       </article>
       <Modal v-if="isOpen" />
     </div>
@@ -84,8 +84,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapActions } from "pinia";
-// import { getPlayersList, getPlayerSelected } from '../services/futdbService'
-// import { Player } from '../interfaces/players.inteface'
 import { usePlayersStore } from "../stores/playerDetailsStore";
 import Modal from "../components/ModalDetailsPlayers.vue";
 export default defineComponent({
@@ -93,7 +91,7 @@ export default defineComponent({
     Modal,
   },
   setup() {
-    return { page: 0 };
+    return { page: 1 };
   },
   methods: {
     ...mapActions(usePlayersStore, [

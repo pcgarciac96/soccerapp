@@ -1,15 +1,47 @@
 import { defineStore } from "pinia";
-import { getPlayersList, getPlayerSelected, getImagePlayerSelected } from '../services/futdbService'
-import { IstatePlayer, selectedPlayer } from '../interfaces/players.interface'
+import { getPlayersList, getPlayerSelected } from '../services/futdbService'
+import { IStatePlayer, selectedPlayer } from '../interfaces/players.interface'
 
 export const usePlayersStore = defineStore("playersStore", {
-  state: ():IstatePlayer => {
+  state: ():IStatePlayer => {
    return{
     selectedPlayer:{
-        id:0,
-        name:'',
-        position: 0,
-        gamePostion:''
+      "id": 0,
+      "resourceId": 0,
+      "resourceBaseId": 0,
+      "futBinId": 0,
+      "futWizId": 0,
+      "firstName": '',
+      "lastName": '',
+      "name": '',
+      "commonName": '',
+      "height": 0,
+      "weight": 0,
+      "birthDate": '',
+      "age": 0,
+      "league": 0,
+      "nation": 0,
+      "club": 0,
+      "rarity": 0,
+      "traits": [],
+      "specialities": [],
+      "position": '',
+      "skillMoves": 0,
+      "weakFoot": 0,
+      "foot": "Right",
+      "attackWorkRate": '',
+      "defenseWorkRate": '',
+      "totalStats": 0,
+      "totalStatsInGame": 0,
+      "color": '',
+      "rating": 0,
+      "ratingAverage": 0,
+      "pace": 0,
+      "shooting": 0,
+      "passing": 0,
+      "dribbling": 0,
+      "defending": 0,
+      "physicality": 0,
     },
     playersList:[],
     isOpen: false,
@@ -25,8 +57,8 @@ export const usePlayersStore = defineStore("playersStore", {
       
       getPlayersList(pagination)
       .then((res) => {
-        console.log(res.data.items);
-        this.playersList = res.data.items;
+        console.log(res.items);
+        this.playersList = res.items;
       })
       .catch((error: Error) => {
         console.log(error);
@@ -37,20 +69,9 @@ export const usePlayersStore = defineStore("playersStore", {
       .then((res) => {
         console.log("hola");
         
-        console.log(res.data.player);
-        this.selectedPlayer = res.data.player;
+        console.log(res.player);
+        this.selectedPlayer = res.player;
         this.isOpen = true;
-        // this.playersList = res.data.items;
-      })
-      .catch((error: Error) => {
-        console.log(error);
-      });
-      getImagePlayerSelected(id)
-      .then((res) => {
-        console.log("hola");
-        
-        console.log(res);
-        
         // this.playersList = res.data.items;
       })
       .catch((error: Error) => {

@@ -1,4 +1,4 @@
-<template>
+<template>{{selectedPlayer}}
   <div class="modal" >
     <div class="flex items-center justify-center modal-overlay">
       <div

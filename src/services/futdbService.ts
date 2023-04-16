@@ -1,6 +1,5 @@
 import { futdbApi } from '../config/futdbApi';
-import { selectedPlayer } from '../interfaces/players.interface';
+import { IResponsePlayerSelected, IPlayers } from '../interfaces/players.interface';
 
-export const getPlayersList = (page:number): Promise<selectedPlayer[]>  => futdbApi.get("players?page="+page);
-export const getPlayerSelected = (id:number): Promise<selectedPlayer[]>  => futdbApi.get("players/" + id);
-export const getImagePlayerSelected = (id:number): Promise<selectedPlayer[]>  => futdbApi.get("players/" + id + "/image");
+export const getPlayersList = (page:number): Promise<IPlayers[]>  => futdbApi.get("players?page="+page).then((res)=>res.data);
+export const getPlayerSelected = (id:number): Promise<IResponsePlayerSelected[]>  => futdbApi.get("players/" + id).then((res)=>res.data);
