@@ -9,3 +9,9 @@ export interface IClubs {
   name: string;
   league: number;
 }
+export interface IStateClub {
+    selectedClub: IClubs;
+    clubList: IClubs[];
+}
+
+
