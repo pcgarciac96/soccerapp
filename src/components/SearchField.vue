@@ -23,19 +23,13 @@
           placeholder=""
           id=""
         />
-        <input
-          type="button"
-          value="Buscar"
-          class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"
-        />
       </div>
     </div>
   </div>
 </template>
 <script  lang="ts">
-import { mapState, mapActions } from "pinia";
 import { useClubsStore } from "../stores/clubDetailsStore";
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 
 export default {
   name: "ModalDetailsPlayers",
@@ -45,7 +39,7 @@ export default {
     const searchClub = () => clubsStore.searchClub(searchText.value);
     return {
       searchClub,
-      searchText
+      searchText,
     };
   },
 };

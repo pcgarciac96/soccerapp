@@ -42,16 +42,6 @@ export interface IStatePlayer {
   selectedPlayer: selectedPlayer;
   playersList: selectedPlayer[];
   isOpen: boolean;
-  image: string;
-}
-export interface IResponsePlayerSelected {
-  player: selectedPlayer;
-  
-}
-
-export interface IResponseClubs {
-  pagination: IPaginate;
-  items: IPlayers[];
 }
 export interface IPlayers {
   "id": number,
@@ -73,7 +63,3 @@ export interface IPlayers {
   "rarity": number,
   "traits":[]
 }
-// export interface Player{
-//     id: number;
-//     name:string;
-//   }

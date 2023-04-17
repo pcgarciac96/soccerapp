@@ -1,11 +1,13 @@
 <template>
-  <SearchField />
-  <Table />
+  <div class="mt-20">
+    <SearchField />
+    <Table />
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import Table from "../components/Table.vue";
-import SearchField from "../components/SeachField.vue";
+import SearchField from "../components/SearchField.vue";
 import { useClubsStore } from "../stores/clubDetailsStore";
 import { getClubList } from "../services/ClubService";
 import { IClubs } from "../interfaces/clubs.interface";
@@ -15,12 +17,10 @@ export default defineComponent({
     SearchField,
   },
   setup() {
-    const prueba = useClubsStore();
+    const clubStore = useClubsStore();
     onMounted(() => {
       getClubList().then((res: IClubs[]) => {
-        console.log(res);
-
-        prueba.setClubs(res);
+        clubStore.setClubs(res);
       });
     });
   },

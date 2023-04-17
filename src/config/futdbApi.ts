@@ -8,5 +8,3 @@ export const futdbApi = axios.create({
          'X-AUTH-TOKEN': '8e1e60d8-2a1f-4769-a8c4-0c287ec5695e'
       },
 });
-
-// export default futdbApi;

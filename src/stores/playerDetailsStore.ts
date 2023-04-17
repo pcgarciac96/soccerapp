@@ -1,29 +1,29 @@
 import { defineStore } from "pinia";
-import { IStatePlayer } from '../interfaces/players.interface'
+import { IStatePlayer } from "../interfaces/players.interface";
 
 export const usePlayersStore = defineStore("playersStore", {
   state: (): {
-    selectedPlayer:IStatePlayer[];
-    playersList : IStatePlayer[];
-    isOpen: boolean,
+    selectedPlayer: IStatePlayer[];
+    playersList: IStatePlayer[];
+    isOpen: boolean;
   } => {
-   return{
-    selectedPlayer:[],
-    playersList:[],
-    isOpen: false,
-   }
+    return {
+      selectedPlayer: [],
+      playersList: [],
+      isOpen: false,
+    };
   },
   actions: {
-    setPlayers(players:IStatePlayer[]){
+    setPlayers(players: IStatePlayer[]) {
       this.playersList = players;
     },
-    getPlayerSelected(player:IStatePlayer[]){
-      this.selectedPlayer = player; 
+
+    getPlayerSelected(player: IStatePlayer[]) {
+      this.selectedPlayer = player;
     },
-    closeModal(){
+
+    closeModal() {
       this.isOpen = false;
-      console.log("hola");
-      
-    }
+    },
   },
 });
